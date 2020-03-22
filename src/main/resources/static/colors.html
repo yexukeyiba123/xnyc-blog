@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>神奇的颜色</title>
+    <style type="text/css">
+        *{
+			margin: 0px;
+			padding: 0px;
+		}
+		body{
+			background: #FFF;
+		}
+		#colors{
+			width: 100%;
+			
+		}
+		div.content{
+			width: 1200px;
+			margin: auto;
+		}
+		div#colors div.content div.item{
+			display: inline-block;
+			width: 150px;
+			height: 150px;
+			border-radius: 75px;
+			color: #FFF;
+			font-size: 18px;
+			font-weight: bold;
+			margin-left: 25px;
+			margin-top: 25px;
+			text-align: center;
+			line-height: 150px;
+		}
+    </style>
+
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+	<script>
+		$.ajax({
+			url: "user/all",
+			dataType: "text",
+			type: 'post',
+			data: {
+				},
+			success: function(state){
+				alert(state)
+			}
+		})
+
+	</script>
+</head>
+<body>
+	<img src="image/nanjing3.png" />
+	<div id="colors">
+		<div class="content">
+			<div class="item" style="background: #F5F5F5;border: 1px solid #F00;color: #000;">#F5F5F5</div>
+			<div class="item" style="background: #EE7E80;">#EE7E80</div>
+			<div class="item" style="background: #FDCE5F;">#FDCE5F</div>
+			<div class="item" style="background: #7DC3ED;">#7DC3ED</div>
+			<div class="item" style="background: #359FDD;color: #000;">#359FDD</div>
+			<div class="item" style="background: #2AD3F1;color: #000;">#2AD3F1</div>
+			<div class="item" style="background: #0684bd;color: #000;">#0684bd</div>
+			<div class="item" style="background: #A6A8E9;">#A6A8E9</div>
+			<div class="item" style="background: #8BCFCC;">#8BCFCC</div>
+			<div class="item" style="background: #F94B2D;">#F94B2D</div>
+			<div class="item" style="background: #80639B;">#80639B</div>
+			<div class="item" style="background: #000;">#000</div>
+			<div class="item" style="background: #111;">#111</div>
+			<div class="item" style="background: #222;">#222</div>
+			<div class="item" style="background: #333;">#333</div>
+			<div class="item" style="background: #444;">#444</div>
+			<div class="item" style="background: #555;">#555</div>
+			<div class="item" style="background: #666;">#666</div>
+			<div class="item" style="background: #777;">#777</div>
+			<div class="item" style="background: #888;">#888</div>
+			<div class="item" style="background: #999;">#999</div>
+			<div class="item" style="background: #AAA;">#AAA</div>
+			<div class="item" style="background: #BBB;">#BBB</div>
+			<div class="item" style="background: #CCC;">#CCC</div>
+			<div class="item" style="background: #DDD;color: #000;">#DDD</div>
+			<div class="item" style="background: #EEE;color: #000;">#EEE</div>
+			<div class="item" style="background: #FFF;color: #000;">#FFF</div>
+			<div class="item" style="background: #FFF2E8;color: #000;">#FFF2E8</div>
+			<div class="item" style="background: #32CD32;">#32CD32</div>
+			
+		</div>
+	</div>
+</body>
+</html>

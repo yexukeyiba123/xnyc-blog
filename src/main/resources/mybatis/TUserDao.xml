@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xnyc.blog.mapper.TUserDao">
+
+    <resultMap id="BaseResultMap" type="com.xnyc.blog.po.TUserPo">
+        <result property="id" jdbcType="BIGINT" column="id"/>
+        <result property="userId" jdbcType="VARCHAR" column="userId"/>
+        <result property="userName" jdbcType="VARCHAR" column="userName"/>
+        <result property="loginName" jdbcType="VARCHAR" column="loginName"/>
+        <result property="password" jdbcType="VARCHAR" column="password"/>
+        <result property="name" jdbcType="VARCHAR" column="name" />
+        <result property="age" jdbcType="INTEGER" column="age" />
+        <result property="sex" jdbcType="VARCHAR" column="sex" />
+        <result property="mobilePhone" jdbcType="VARCHAR" column="mobilePhone" />
+        <result property="email" jdbcType="VARCHAR" column="email" />
+        <result property="lastModifyTime" jdbcType="TIMESTAMP" column="lastModifyTime" />
+        <result property="createTime" jdbcType="DATE" column="createTime" />
+    </resultMap>
+
+    <select id="getByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from t_user where userId = #{userId}
+    </select>
+
+    <update id="updateByUserId" parameterType="com.xnyc.blog.po.TUserPo">
+        update t_user
+        <set>
+            <if test="userName != null">
+                userName = #{userName},
+            </if>
+            <if test="loginName != null">
+                loginName = #{loginName},
+            </if>
+            <if test="password != null">
+                password = #{password},
+            </if>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="mobilePhone != null">
+                mobilePhone = #{mobilePhone},
+            </if>
+            <if test="email != null">
+                email = #{email},
+            </if>
+        </set>
+        where userId = #{userId}
+    </update>
+
+    <select id="getAllUser" resultMap="BaseResultMap">
+        select * from t_user
+    </select>
+
+</mapper>
