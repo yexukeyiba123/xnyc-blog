@@ -1,6 +1,6 @@
 package com.xnyc.blog.api.apientity;
 
-import com.xnyc.blog.meta.IErrorCode;
+import com.xnyc.blog.meta.ResultCode;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 public class AbstractResponse {
     @ApiModelProperty(value = "错误码")
-    private String resultCode = IErrorCode.SUCCESS;
+    private String resultCode = ResultCode.SUCCESS;
 
     @ApiModelProperty(value = "错误描述")
     private String description = "success";

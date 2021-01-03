@@ -1,0 +1,222 @@
+@charset "UTF-8";
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
+::-webkit-scrollbar  
+{  
+    width:8px;
+    height:8px;
+    background:#e4e4e4;
+}   
+/*定义滑块 内阴影+圆角*/  
+::-webkit-scrollbar-thumb  
+{  
+	border-radius:10px;
+	background-color:#0ae;
+	background-image:-webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);  
+}
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: "Microsoft Yahei";
+}
+@font-face {
+	font-family: caoti; /*这里是说明调用来的字体名字*/
+	src: url("../font/caoti.ttf"); /*这里是字体文件路径*/
+}
+html,body{
+	width: 100%;
+	height:100%;
+	font-size: 12px;
+	min-width: 1200px;
+}
+body{
+	background-image: url("../../image/manager/managerLogin_bgimg.jpg");
+	background-repeat: no-repeat;
+    background-size: cover;
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style-type: none;
+}
+div#main{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	
+}
+div#main div.title{
+	position: absolute;
+	top:50px;
+	left: -160px;
+	width: 500px;
+	height: 50px;
+	background: #c10000;
+    background: -moz-linear-gradient(top, #c10000 0%, red 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c10000), color-stop(100%, red));
+    background: -webkit-linear-gradient(top, #c10000 0%, red 100%);
+    background: -o-linear-gradient(top, #c10000 0%, red 100%);
+    background: -ms-linear-gradient(top, #c10000 0%, red 100%);
+    background: linear-gradient(to bottom, #c10000 0%, red 100%);
+    text-align: center;
+    transform:rotate(-45deg);
+    mask:url("../../image/manager/mask.png") no-repeat;
+    -webkit-mask:url("../../image/manager/mask.png") no-repeat;
+    -moz-mask:url("../../image/manager/mask.png") no-repeat;
+    -ms-mask:url("../../image/manager/mask.png") no-repeat;
+    -o-mask:url("../../image/manager/mask.png") no-repeat;
+	mask-position:0px 0px;    
+	-webkit-mask-position:0px 0px;    
+	-moz-mask-position:0px 0px;    
+	-ms-mask-position:0px 0px;    
+	-o-mask-position:0px 0px;   
+	animation:mask 5s linear infinite alternate; 
+}
+@keyframes mask{
+	0%{
+		mask-position:30px 0px;    
+		-webkit-mask-position:30px 0px;    
+		-moz-mask-position:30px 0px;    
+		-ms-mask-position:30px 0px;    
+		-o-mask-position:30px 0px;    
+	}
+	100%{
+		mask-position:400px 0px;    
+		-webkit-mask-position:400px 0px;    
+		-moz-mask-position:400px 0px;    
+		-ms-mask-position:400px 0px;    
+		-o-mask-position:400px 0px;    
+	}
+}
+div#main div.title a{
+	font-family: caoti, Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    color: #FFF;
+    line-height: 50px;
+    font-weight:bold;
+}
+div#main div.outer{
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-box;
+	display: -o-box;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-box-align: center;
+	-o-box-align: center;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-box-pack: center;
+	-o-box-pack: center;
+	perspective:800px;
+}
+div#main div.outer div.container{
+	width: 400px;
+	background: rgba(255,255,255,0.7);
+	padding: 15px 30px;
+	margin:-450px auto;
+}
+div#main div.outer div.container div.content{
+	width: 100%;
+	margin: auto;
+}
+div#main div.outer div.container div.content h3{
+	margin: 15px;
+	font-size: 30px;
+	text-align: center;
+	color: #333;
+}
+div#main div.outer div.container div.content ul li div.common{
+	position: relative;
+	width: 400px;
+	height: 100px;
+	border-bottom: 1px solid #ccc;
+}
+div#main div.outer div.container div.content ul li div.common span.sn{
+	position: absolute;
+	width: 45px;
+	height: 45px;
+	bottom: 15px;
+}
+div#main div.outer div.container div.content ul li div.common span.sn_username{
+	background-image:url("../../image/manager/manager_ico.png");
+}
+div#main div.outer div.container div.content ul li div.common span.sn_password{
+	background-image:url("../../image/manager/manager_ico.png");
+	background-position: 0px -45px;
+}
+div#main div.outer div.container div.content ul li div.common span.sn_help{
+	right: 0px;
+	background-image:url("../../image/manager/manager_ico.png");
+	background-position: 0px -93px;
+}
+div#main div.outer div.container div.content ul li div.common input{
+	position: absolute;
+	width: 310px;
+	height: 30px;
+	left: 45px;
+	bottom: 5px;
+	background: transparent;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	border: 0;
+	outline: 0;
+}
+div#main div.outer div.container div.content ul li div.common span.tip{
+	position: absolute;
+	left: 170px;
+	bottom: 10px;
+	color: #666;
+	font-size: 18px;
+}
+div#main div.outer div.container div.content ul li div.common span.tip_password{
+	left: 182px;
+}
+div#main div.outer div.container div.content ul li div.message{
+	width: 100%;
+	padding: 10px 0px;
+	text-align: center;
+	display: none;
+}
+div#main div.outer div.container div.content ul li div.message::before{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	width: 23px;
+	height: 23px;
+	background-image:url("../../image/manager/manager_ico.png");
+	background-position: -47px 0px;
+	background-size: 69px 69px;
+}
+div#main div.outer div.container div.content ul li div.message span{
+	font-size: 18px;
+	color: #F00;
+	padding-left: 10px;
+}
+div#main div.outer div.container div.content ul li button#login{
+	width: 100%;
+    background: #1f4f82;
+    padding: 16px;
+    margin: 20px 0px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFF;
+    transition: background .2s linear;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    box-shadow: 0px 2px 15px rgba(0,0,0,0.18);
+}
+div#main div.outer div.container div.content ul li button#login:hover{
+	background: #007cba;
+    outline: 1px solid #FFF;
+}
+    
+
+
+
+

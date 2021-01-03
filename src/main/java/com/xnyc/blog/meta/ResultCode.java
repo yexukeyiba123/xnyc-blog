@@ -4,7 +4,7 @@ package com.xnyc.blog.meta;
  * @author : 郑杜
  * @date : 2019/08/10
  */
-public interface IErrorCode {
+public interface ResultCode {
     // 成功
     String SUCCESS = "0";
 

@@ -5,16 +5,15 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 /**
+ * 用户Do
+ *
  * @author : 郑杜
  * @date : 2019/08/10
  */
 @Data
-public class TUserPo {
-    //主键
-    private Long id;
-
-    //用户Id，唯一标识用户
-    private String userId;
+public class TMemberDo {
+    //主键，用户Id，唯一标识用户
+    private Long memberId;
 
     //用户名
     private String userName;

@@ -1,16 +1,11 @@
 package com.xnyc.blog.api.controller;
 
-import com.xnyc.blog.api.apientity.AbstractRequest;
 import com.xnyc.blog.api.apientity.user.QueryUserRequest;
-import com.xnyc.blog.domain.exception.ServiceException;
-import com.xnyc.blog.mapper.TUserDao;
-import com.xnyc.blog.po.TUserPo;
+import com.xnyc.blog.mapper.TMemberMapper;
+import com.xnyc.blog.po.TMemberDo;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,18 +23,18 @@ import java.util.List;
 public class QueryController {
 
     @Autowired
-    private TUserDao userDao;
+    private TMemberMapper memberDao;
 
     @ApiOperation(value = "查询用户", notes = "")
     @PostMapping("/by_id")
-    public TUserPo getUserById(@RequestBody @Valid QueryUserRequest req) {
-        return userDao.getByUserId(req.getUserId());
+    public TMemberDo getUserById(@RequestBody @Valid QueryUserRequest req) {
+        return memberDao.getByMemberId(req.getMemberId());
     }
 
     @PostMapping("/all")
-    public List<TUserPo> getAllUser() {
+    public List<TMemberDo> getAllUser() {
         log.info("== begin to get all user.");
-        return userDao.getAllUser();
+        return memberDao.getAllMember();
     }
 
 }

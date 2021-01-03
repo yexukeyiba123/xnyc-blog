@@ -1,6 +1,7 @@
 package com.xnyc.blog.api.apientity.login;
 
 import com.xnyc.blog.api.apientity.AbstractRequest;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -12,15 +13,12 @@ import javax.validation.constraints.NotBlank;
  */
 @Data
 public class LoginRequest extends AbstractRequest {
-    /**
-     * 用户名
-     */
-    @NotBlank(message = "用户名不能为空")
-    private String userName;
 
-    /**
-     * 密码
-     */
+    @ApiModelProperty(value = "用户名")
+    @NotBlank(message = "用户名不能为空")
+    private String loginName;
+
+    @ApiModelProperty(value = "密码")
     @NotBlank(message = "密码不能为空")
     private String password;
 }

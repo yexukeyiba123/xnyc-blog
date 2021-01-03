@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xnyc.blog.mapper.TManagerModuleMapper">
+
+    <resultMap id="BaseResultMap" type="com.xnyc.blog.po.TManagerModuleDo">
+        <result property="manageModuleId" jdbcType="BIGINT" column="manageModuleId"/>
+        <result property="moduleName" jdbcType="VARCHAR" column="moduleName"/>
+        <result property="modulUrl" jdbcType="VARCHAR" column="modulUrl"/>
+        <result property="lastModifyTime" jdbcType="TIMESTAMP" column="lastModifyTime" />
+        <result property="createTime" jdbcType="DATE" column="createTime" />
+    </resultMap>
+
+    <select id="getByManageModuleId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select * from t_manager_module where manageModuleId = #{manageModuleId}
+    </select>
+</mapper>

@@ -13,5 +13,5 @@ import javax.validation.constraints.NotNull;
 public class QueryUserRequest extends AbstractRequest {
     @ApiModelProperty(value = "用户Id")
     @NotNull
-    private String userId;
+    private Long memberId;
 }

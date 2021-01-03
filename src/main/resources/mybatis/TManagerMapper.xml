@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xnyc.blog.mapper.TManagerMapper">
+
+    <resultMap id="BaseResultMap" type="com.xnyc.blog.po.TManagerDo">
+        <result property="managerId" jdbcType="BIGINT" column="managerId"/>
+        <result property="manageModuleId" jdbcType="BIGINT" column="manageModuleId"/>
+        <result property="loginName" jdbcType="VARCHAR" column="loginName"/>
+        <result property="password" jdbcType="VARCHAR" column="password"/>
+        <result property="name" jdbcType="VARCHAR" column="name" />
+        <result property="mobilePhone" jdbcType="VARCHAR" column="mobilePhone" />
+        <result property="email" jdbcType="VARCHAR" column="email" />
+        <result property="expiredTime" jdbcType="DATE" column="expiredTime" />
+        <result property="lastModifyTime" jdbcType="TIMESTAMP" column="lastModifyTime" />
+        <result property="createTime" jdbcType="DATE" column="createTime" />
+    </resultMap>
+
+    <select id="getByManagerId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select * from t_manager where managerId = #{managerId}
+    </select>
+
+    <select id="getByLoginName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select * from t_manager where loginName = #{loginName}
+    </select>
+
+</mapper>

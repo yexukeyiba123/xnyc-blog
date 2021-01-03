@@ -2,10 +2,9 @@ package com.xnyc.blog.configure.advice;
 
 import com.xnyc.blog.api.apientity.AbstractResponse;
 import com.xnyc.blog.domain.exception.ServiceException;
-import com.xnyc.blog.meta.IErrorCode;
+import com.xnyc.blog.meta.ResultCode;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -28,7 +28,7 @@ public class ControllerAdvice {
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public AbstractResponse onValidationException(HttpServletRequest httpRequest, MethodArgumentNotValidException e) {
         AbstractResponse resp = new AbstractResponse();
-        resp.setResultCode(IErrorCode.ERROR_PARAM);
+        resp.setResultCode(ResultCode.ERROR_PARAM);
 
         String description = "参数错误。";
         List<ObjectError> list = e.getBindingResult().getAllErrors();
@@ -46,10 +46,10 @@ public class ControllerAdvice {
     }
 
     @ExceptionHandler(value = ServiceException.class)
-    public AbstractResponse onServiceException(HttpServletRequest http, ServiceException e) {
+    public AbstractResponse onServiceException(HttpServletRequest request,  ServiceException e) {
         log.error("WebControllerAdvice onServiceException is: {}, {}", e.getMessage(), e);
         AbstractResponse resp = new AbstractResponse();
-        resp.setResultCode(e.getCode());
+        resp.setResultCode(e.getResultCode());
         resp.setDescription(e.getMessage());
         return resp;
     }
@@ -58,8 +58,8 @@ public class ControllerAdvice {
     public AbstractResponse onException(HttpServletRequest http, Exception e) {
         log.error("WebControllerAdvice onException is: {}, {}", e.getMessage(), e);
         AbstractResponse resp = new AbstractResponse();
-        resp.setResultCode(IErrorCode.UNKNOWN_ERROR);
-        resp.setDescription(e.getMessage());
+        resp.setResultCode(ResultCode.UNKNOWN_ERROR);
+        resp.setDescription("对不起，服务器出错啦！！！");
         return resp;
     }
 }

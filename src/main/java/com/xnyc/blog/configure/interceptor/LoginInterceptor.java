@@ -1,8 +1,14 @@
 package com.xnyc.blog.configure.interceptor;
 
+import com.xnyc.blog.mapper.XnycMapper;
+import com.xnyc.blog.meta.Constant;
+import com.xnyc.blog.po.TManagerDo;
+import com.xnyc.blog.po.TMemberDo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,22 +19,45 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
+    @Autowired
+    private XnycMapper dao;
+
 
     /**
      * 在请求被处理之前调用
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        // 检查每个到来的请求对应的session域中是否有登录标识
-        Object loginName = request.getSession().getAttribute("loginName");
-        if (null == loginName || !(loginName instanceof String)) {
-            // 未登录，重定向到登录页
-            log.info("LoginInterceptor NOt login.");
-            response.sendRedirect("/index.html");
+        String opType = request.getParameter("opType");
+        if (StringUtils.isEmpty(opType)) {
+            response.sendRedirect("/");
             return false;
         }
-        String userName = (String) loginName;
-        log.info("当前用户已登录，登录的用户名为： " + userName);
+
+        // 检查每个到来的请求对应的session域中是否有登录标识
+
+        // TODO 这里要区分是用户还是管理人员，应该根据路径标识实现，
+        Long loginId;
+        if (Constant.OP_Type.USER.equals(opType)) {
+            loginId = (Long)request.getSession().getAttribute(Constant.SESSION_ATTRIBUTE.USER);
+            TMemberDo userPo = dao.getMemberMapper().getByMemberId(loginId);
+            if (userPo == null) {
+                log.info("LoginInterceptor user NOt login.");
+                // TODO: 重定向到用户登录界面
+                response.sendRedirect("/");
+                return false;
+            }
+        } else if (Constant.OP_Type.MANAGER.equals(opType)) {
+            loginId = (Long)request.getSession().getAttribute(Constant.SESSION_ATTRIBUTE.ADMIN);
+            TManagerDo adminPo = dao.getManagerMapper().getByManagerId(loginId);
+            if (adminPo == null) {
+                log.info("LoginInterceptor admin NOt login.");
+                // TODO: 重定向到管理员登录界面
+                response.sendRedirect("/");
+                return false;
+            }
+        }
+
         return true;
     }
 

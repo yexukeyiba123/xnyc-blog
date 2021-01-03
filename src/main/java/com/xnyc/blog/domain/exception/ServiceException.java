@@ -4,13 +4,13 @@ import lombok.Data;
 
 @Data
 public class ServiceException extends RuntimeException {
-    private String code;
+    private String resultCode;
 
     private String message;
 
-    public ServiceException(String code, String message) {
+    public ServiceException(String resultCode, String message) {
         super(message);
-        this.code = code;
+        this.resultCode = resultCode;
         this.message = message;
     }
 }

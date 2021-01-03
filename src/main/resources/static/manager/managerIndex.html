@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Xuniyicheng Blog | 管理主页</title>
+	<meta charset="UTF-8">
+    <meta name="keywords" content="web前端博客,html5,web前端笔记,web前端开发,JavaScript,jQuery,css3,html,css,java,许你一城的博客,许你一城,jni,Xuniyicheng,xnyc">
+    <meta name="description" content="许你一城个人博客，个人前端笔记与案例展示、学习经验交流！" >
+    <link rel="icon" href="images/xu-ico.ico">
+
+	<link rel="stylesheet" type="text/css" href="../css/manager/managerIndex.css">
+	<script type="text/javascript" src="../js/plugin/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="../js/plugin/jquery.color.js"></script>
+	<script type="text/javascript" src="../js/constant.js"></script>
+	<script type="text/javascript" src="../js/manager/managerIndex.js"></script>
+</head>
+<body>
+<%
+	if(session.getAttribute("managerUsername")==null){
+%>
+	<jsp:forward page="managerLogin.jsp" />
+<%
+	}
+%>	
+	<div id="main">
+		<div class="wrap">
+			<div class="item article" onclick="javascript:window.open('dealArticle.jsp');">
+				<img src="images/s551.png" width="100%" height="100%" style="opacity:0.7;"/>
+				<p>文章</p>
+				<p class="p-article"></p>
+			</div>
+			<div class="item comment" onclick="javascript:window.open('dealComment.jsp');">
+				<img src="images/h551.png" width="100%" height="100%" style="opacity:0.8;"/>
+				<p>评论</p>
+				<p class="p-comment"></p>
+			</div>
+			<div class="item donate" onclick="javascript:window.open('dealDonate.jsp');">
+				<img src="images/h552.png" width="100%" height="100%" style="opacity:0.9;"/>
+				<p>捐赠</p>
+				<p class="p-donate"></p>
+			</div>
+			<div class="item view" onclick="javascript:window.open('dealView.jsp');">
+				<img src="images/h553.png" width="100%" height="100%" style="opacity:1;"/>
+				<p>意见</p>
+				<p class="p-view"></p>
+			</div>
+			<div class="item user" onclick="javascript:window.open('dealUser.jsp');">
+				<img src="images/s552.png" width="100%" height="100%" style="opacity:0.8;"/>
+				<p>认证用户</p>
+				<p class="p-user"></p>
+			</div>
+			<div class="item amend" onclick="javascript:window.open('dealPassword.jsp');">
+				<img src="images/s553.png" width="100%" height="100%" style="opacity:0.8;"/>
+				<p>修改密码</p>
+			</div>
+			<div class="item exit">
+				<img src="images/s554.png" width="100%" height="100%" style="opacity:0.7;"/>
+				<p>退出</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
