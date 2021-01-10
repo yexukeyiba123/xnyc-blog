@@ -6,6 +6,8 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
+ * 有些页面需要登录才能进入，需要配置拦截页面
+ *
  * @author : 郑杜
  * @date : 2020/03/15
  */
@@ -17,17 +19,17 @@ public class LoginConfiguration implements WebMvcConfigurer {
         LoginInterceptor loginInterceptor = new LoginInterceptor();
         InterceptorRegistration loginRegistry = registry.addInterceptor(loginInterceptor);
         // 拦截路径
-//        loginRegistry.addPathPatterns("/**");
+        loginRegistry.addPathPatterns("/manager/**/*.html");
+        loginRegistry.excludePathPatterns("/manager/managerLogin.html");
 
         // 排除路径
-        loginRegistry.excludePathPatterns("/**");
-//        loginRegistry.excludePathPatterns("/login_register/*");
-//        loginRegistry.excludePathPatterns("/query/*");
+//        loginRegistry.excludePathPatterns("/**");
+
 
         // 排除资源请求
-//        loginRegistry.excludePathPatterns("/css/login/*.css");
-//        loginRegistry.excludePathPatterns("/js/login/**/*.js");
-//        loginRegistry.excludePathPatterns("/image/login/*.png");
-//        loginRegistry.excludePathPatterns("/index.html");
+        loginRegistry.excludePathPatterns("/css/**");
+        loginRegistry.excludePathPatterns("/js/**");
+        loginRegistry.excludePathPatterns("/image/**");
+        loginRegistry.excludePathPatterns("/index.html");
     }
 }

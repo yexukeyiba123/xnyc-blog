@@ -30,7 +30,22 @@ $(function(){
 		$("span.sn_password").css({"background-position":"0px -45px"});
 		$("div#pw").css({"borderBottom":"1px solid #ccc"});
 	});
-	/*=================== input获得焦点和失去焦点事件  end ======================*/
+     /*=================== input获得焦点和失去焦点事件  end ======================*/
+
+    // 进入登录页面时，先判断是否已经登录，如果已经登录，则直接跳转到管理后台的主页
+	$.ajax({
+        url: "/manager/check/login",
+        type: 'post',
+        dataType: "json",
+        contentType:"application/json;charset=UTF-8",
+        data: JSON.stringify({}),
+        success: function(resp){
+            if (XNYC_CONSTANT.RESULT_CODE.SUCCESS == resp.resultCode) {
+                window.location.href = "managerIndex.html";
+            }
+        }
+    })
+
 	$("button#login").click(function(){
 		if($("input[id=username]").val().length == 0){
 			$("div.message").css("display","block");

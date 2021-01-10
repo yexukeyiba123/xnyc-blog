@@ -14,47 +14,22 @@
 	<script type="text/javascript" src="../js/manager/managerIndex.js"></script>
 </head>
 <body>
-<%
-	if(session.getAttribute("managerUsername")==null){
-%>
-	<jsp:forward page="managerLogin.jsp" />
-<%
-	}
-%>	
-	<div id="main">
-		<div class="wrap">
-			<div class="item article" onclick="javascript:window.open('dealArticle.jsp');">
-				<img src="images/s551.png" width="100%" height="100%" style="opacity:0.7;"/>
-				<p>文章</p>
-				<p class="p-article"></p>
+	<div class="container">
+		<div class="row">
+			<div class="item">
+				<a href="list-news-notice.jsp">文章管理</a>
 			</div>
-			<div class="item comment" onclick="javascript:window.open('dealComment.jsp');">
-				<img src="images/h551.png" width="100%" height="100%" style="opacity:0.8;"/>
-				<p>评论</p>
-				<p class="p-comment"></p>
+			<div class="item">
+				<a href="add-news-notice.jsp">评论管理</a>
 			</div>
-			<div class="item donate" onclick="javascript:window.open('dealDonate.jsp');">
-				<img src="images/h552.png" width="100%" height="100%" style="opacity:0.9;"/>
-				<p>捐赠</p>
-				<p class="p-donate"></p>
+			<div class="item">
+				<a href="HistoryAction_getHistoryList">用户管理</a>
 			</div>
-			<div class="item view" onclick="javascript:window.open('dealView.jsp');">
-				<img src="images/h553.png" width="100%" height="100%" style="opacity:1;"/>
-				<p>意见</p>
-				<p class="p-view"></p>
-			</div>
-			<div class="item user" onclick="javascript:window.open('dealUser.jsp');">
-				<img src="images/s552.png" width="100%" height="100%" style="opacity:0.8;"/>
-				<p>认证用户</p>
-				<p class="p-user"></p>
-			</div>
-			<div class="item amend" onclick="javascript:window.open('dealPassword.jsp');">
-				<img src="images/s553.png" width="100%" height="100%" style="opacity:0.8;"/>
-				<p>修改密码</p>
+			<div class="item">
+				<a href="MemberAction_getMemberList">xx</a>
 			</div>
 			<div class="item exit">
-				<img src="images/s554.png" width="100%" height="100%" style="opacity:0.7;"/>
-				<p>退出</p>
+				<a href="MemberAction_getMemberList">退出登录</a>
 			</div>
 		</div>
 	</div>

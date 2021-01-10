@@ -14,5 +14,6 @@ import javax.validation.constraints.NotBlank;
  */
 @Data
 public class LoginResponse extends AbstractResponse {
-
+    @ApiModelProperty(value = "管理员Id")
+    private Long managerId;
 }

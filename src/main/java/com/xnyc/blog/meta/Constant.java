@@ -9,9 +9,9 @@ public interface Constant {
      * 会话标识：用于登录使用
      */
     interface  SESSION_ATTRIBUTE {
-        String USER = "loginUserId";
+        String LOGIN_ID = "loginId";
 
-        String ADMIN = "loginAdminId";
+        String OP_TYPE = "opType";
     }
 
     /**

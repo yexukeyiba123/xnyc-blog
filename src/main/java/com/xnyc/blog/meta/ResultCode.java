@@ -14,4 +14,7 @@ public interface ResultCode {
     // 参数错误
     String ERROR_PARAM = "5001";
 
+    // 没有登录
+    String NO_LOGIN = "5002";
+
 }
