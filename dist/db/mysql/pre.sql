@@ -27,3 +27,14 @@ CREATE TABLE IF NOT EXISTS `t_manager` (
   `lastmodifytime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`managerId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `t_article_category` (
+  `categoryId` bigint(20) NOT NULL AUTO_INCREMENT,
+  `parentCategoryId` bigint(20) DEFAULT NULL,
+  `categoryLevel` int(11) DEFAULT NULL,
+  `categoryName` varchar(50) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
+  `lastmodifytime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`categoryId`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;

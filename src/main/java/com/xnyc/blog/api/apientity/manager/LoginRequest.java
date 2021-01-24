@@ -1,4 +1,4 @@
-package com.xnyc.blog.api.apientity.login;
+package com.xnyc.blog.api.apientity.manager;
 
 import com.xnyc.blog.api.apientity.AbstractRequest;
 import io.swagger.annotations.ApiModelProperty;

@@ -29,51 +29,70 @@ html,body{
 	src: url("font/caoti.ttf"); /*这里是字体文件路径*/
 }
 
-.clearfix::after{
-    content:"";
-    display:block;
-    height:0;
-    clear:both;
-}
-
 .title{
     text-align: center;
     padding: 25px 0px;
     font-size: 23px;
 }
 
+.clearfix::after{
+    content:"";
+    display:block;
+    height:0;
+    clear:both;
+}
 .container{
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     margin: 1px auto;
     width: 1200px;
     border-radius: 5px;
 }
-
-.item{
-    width:160px;
-    height:100px;
-    margin:15px 20px;
-    background:#0588d1;
-    float:left;
-    text-align:center;
-    transition:1s;
+.container .buttonPage .button{
+    float: left;
+    width: 120px;
+    height: 40px;
+    background: #0588d1;
+    color: #fff;
+    line-height: 40px;
+    margin: 0px 10px;
+    text-align: center;
+    cursor:pointer;
 }
-.item a{
-    color:#fff;
+
+.categoryShowPage{
+    padding:20px 0px;
+}
+.categoryShowPage .category{
+    height:30px;
+    color:#333;
+    line-height:30px;
     font-weight:bold;
-    ont-size:16px;
-    display:inline-block;
-    width:100%;
-    height:100%;
-    line-height:105px;
+    border-bottom: 1px #fff solid;
 }
-.item:hover{
-    border-radius:20px;
+.categoryShowPage .category span{
+    padding:0px 20px;
 }
-.item:hover a{
-    text-decoration:none;
+.categoryShowPage .category span.delete{
+    cursor:pointer;
 }
-
-
+.categoryShowPage .category-0{
+    background: #0588d1;
+}
+.categoryShowPage .category-1{
+    background: #EE7E80;
+    padding-left: 10px;
+}
+.categoryShowPage .category-2{
+    background: #FDCE5F;
+    padding-left: 20px;
+}
+.categoryShowPage .category-3{
+    background: #7DC3ED;
+    padding-left: 30px;
+}
+.categoryShowPage .category-4{
+    background: #80639B;
+    padding-left: 40px;
+}
 
 

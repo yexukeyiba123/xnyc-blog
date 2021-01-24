@@ -19,4 +19,7 @@ public class XnycMapper {
 
     @Autowired
     private TManagerModuleMapper managerModuleMapper;
+
+    @Autowired
+    private TArticleCategoryMapper categoryMapper;
 }

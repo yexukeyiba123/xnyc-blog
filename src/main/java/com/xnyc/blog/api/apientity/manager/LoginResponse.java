@@ -1,11 +1,8 @@
-package com.xnyc.blog.api.apientity.login;
+package com.xnyc.blog.api.apientity.manager;
 
-import com.xnyc.blog.api.apientity.AbstractRequest;
 import com.xnyc.blog.api.apientity.AbstractResponse;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
-import javax.validation.constraints.NotBlank;
 
 /**
  * 登录响应体

@@ -1,8 +1,8 @@
 package com.xnyc.blog.api.controller;
 
 import com.xnyc.blog.api.apientity.AbstractResponse;
-import com.xnyc.blog.api.apientity.login.LoginRequest;
-import com.xnyc.blog.api.apientity.login.LoginResponse;
+import com.xnyc.blog.api.apientity.manager.LoginRequest;
+import com.xnyc.blog.api.apientity.manager.LoginResponse;
 import com.xnyc.blog.domain.exception.ServiceException;
 import com.xnyc.blog.mapper.XnycMapper;
 import com.xnyc.blog.meta.Constant;

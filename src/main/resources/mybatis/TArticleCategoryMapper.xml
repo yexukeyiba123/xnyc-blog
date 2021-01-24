@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xnyc.blog.mapper.TArticleCategoryMapper">
+
+    <resultMap id="BaseResultMap" type="com.xnyc.blog.po.TArticleCategoryDo">
+        <result property="categoryId" jdbcType="BIGINT" column="categoryId"/>
+        <result property="parentCategoryId" jdbcType="BIGINT" column="parentCategoryId"/>
+        <result property="categoryLevel" jdbcType="INTEGER" column="categoryLevel"/>
+        <result property="categoryName" jdbcType="VARCHAR" column="categoryName"/>
+        <result property="status" jdbcType="VARCHAR" column="status" />
+        <result property="lastModifyTime" jdbcType="TIMESTAMP" column="lastModifyTime" />
+        <result property="createTime" jdbcType="DATE" column="createTime" />
+    </resultMap>
+
+    <select id="getSubCategoryListById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select * from t_article_category
+        where
+        <if test="parentCategoryId != null">
+            parentCategoryId = #{parentCategoryId}
+        </if>
+        <if test="parentCategoryId == null">
+            parentCategoryId is null
+        </if>
+    </select>
+
+    <select id="getCategoryListById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select * from t_article_category
+        where categoryId = #{categoryId}
+    </select>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from t_article_category
+        where categoryId = #{categoryId}
+    </delete>
+
+</mapper>
