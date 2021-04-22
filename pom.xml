@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.4.0</version>
+            <version>3.5.6</version>
         </dependency>
         <!-- 数据库字段时间映射到LocalDateTime时报错：No typehandler found for property lastModifyTime -->
         <dependency>
